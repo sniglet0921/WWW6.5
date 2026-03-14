@@ -16,7 +16,6 @@ contract VaultMaster is Ownable {
         emit DepositSuccessful(msg.sender, msg.value);
     }
     
-    // onlyOwner修饰符
     function withdraw(address _to, uint256 _amount) public onlyOwner {
         require(_amount <= address(this).balance, "Insufficient balance");
         payable(_to).transfer(_amount);
